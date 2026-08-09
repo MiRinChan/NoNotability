@@ -1,0 +1,5 @@
+[Script]
+http-response ^https:\/\/notability\.com\/global(?:\?.*)?$ script-path=https://gist.githubusercontent.com/MiRinChan/900ca1f0801bfd6ffbaccfb37af6e837/raw/NoNotability.js,requires-body=true,timeout=10,tag=Notability iCloud Guard,enable=true
+
+[MITM]
+hostname = notability.com
