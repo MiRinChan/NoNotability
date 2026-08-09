@@ -24,7 +24,7 @@
   try {
     root = JSON.parse(body);
   } catch (e) {
-    console.log("[Notability Guard] Non-JSON response, skipped");
+    console.log("[NoNotability] Non-JSON response, skipped");
     $done({});
     return;
   }
@@ -55,7 +55,7 @@
       const target = forcedExperiments[item.experimentName];
       if (target !== undefined && item.variantName !== target) {
         console.log(
-          `[Notability Guard] ${item.experimentName}: ${item.variantName} -> ${target}`
+          `[NoNotability] ${item.experimentName}: ${item.variantName} -> ${target}`
         );
         item.variantName = target;
         changed = true;
@@ -69,7 +69,7 @@
       const target = forcedValues[item.parameterName];
       if (target !== undefined && item.value !== target) {
         console.log(
-          `[Notability Guard] ${item.parameterName}: ${item.value} -> ${target}`
+          `[NoNotability] ${item.parameterName}: ${item.value} -> ${target}`
         );
         item.value = target;
         changed = true;
@@ -78,7 +78,7 @@
   }
 
   if (!changed) {
-    console.log("[Notability Guard] Known flags already safe; no change");
+    console.log("[NoNotability] Known flags already safe; no change");
     $done({});
     return;
   }
